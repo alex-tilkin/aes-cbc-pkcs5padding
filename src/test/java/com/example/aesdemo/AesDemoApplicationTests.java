@@ -29,7 +29,7 @@ class AesDemoApplicationTests {
         SecretKey secretKey = AesDemoApplication.convertStringToSecretKeyto(secretKeyStr); // Convert the string to secret key
         IvParameterSpec ivParameterSpec = AesDemoApplication.generateIv(); // Generate Initialization Vector
         String encodedIv = Base64.getEncoder().encodeToString(ivParameterSpec.getIV());
-        String input = "Complyt";
+        String input = "This is a test text";
         String algorithm = "AES/CBC/PKCS5Padding";
 
         String cipherText = AesDemoApplication.encrypt(algorithm, input, secretKey, ivParameterSpec);
@@ -48,7 +48,7 @@ class AesDemoApplicationTests {
         String encodedIv = Base64.getEncoder().encodeToString(ivParameterSpec.getIV());
 
         IvParameterSpec ivParameterSpecFromIv = new IvParameterSpec(Base64.getDecoder().decode(encodedIv));
-        String input = "This is an input text";
+        String input = "This is a test text";
         String algorithm = "AES/CBC/PKCS5Padding";
 
         String cipherText = AesDemoApplication.encrypt(algorithm, input, secretKey, ivParameterSpec);

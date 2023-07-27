@@ -22,12 +22,11 @@ public class AesDemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        SecretKey secretKeyOrig = generateKey(256); // Generate a secret key
-//        String encryptionKey = Base64.getEncoder().encodeToString(secretKeyOrig.getEncoded()); // convert the secret key to string
-        String encryptionKey = "cWrkCbX1JKCiWYFDx9DsHKqdn38QK5o3";
+        SecretKey secretKeyOrig = generateKey(256); // Generate a secret key
+        String encryptionKey = Base64.getEncoder().encodeToString(secretKeyOrig.getEncoded()); // convert the secret key to string
         SecretKey secretKeyFromStr = convertStringToSecretKeyto(encryptionKey); // Convert the string to secret key
         IvParameterSpec ivParameterSpec = generateIv(); // Generate Initialization Vector
-        String input = "Complyt";
+        String input = "This is a test text";
         String algorithm = "AES/CBC/PKCS5Padding";
 
         String cipherText = encrypt(algorithm, input, secretKeyFromStr, ivParameterSpec);
